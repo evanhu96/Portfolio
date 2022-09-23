@@ -4,9 +4,22 @@ $(document).ready(function() {
         } );
 })
 
+//Background NASA API 
 
+function backgroundApi(){
+    var requestUrl = "https://api.nasa.gov/planetary/apod?api_key=KQvSzQgyY8AfMI0hIai86n2GzdEbvv3ZK9f9SVOH"
 
-// $( function() {
-// $( "#datepicker" ).datepicker();
-// } );
+    fetch(requestUrl)
+        .then (function (response){
+            return response.json();
+        })
+        .then(function(data){
+            console.log(data);
 
+            var background = document.querySelector(':root').style
+
+            
+        })
+}
+
+backgroundApi();
