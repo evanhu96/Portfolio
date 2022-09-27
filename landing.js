@@ -1,3 +1,6 @@
+var resultsEl = $("#submitBtn");
+
+
 $(document).ready(function() {
     let displayTimeEl = $('#currentDay');
     function displayTime() {
@@ -32,6 +35,31 @@ function backgroundApi(){
         })
 }
 
-backgroundApi();
 
 // end Background Nasa API
+function results (){
+
+    console.log('here');
+    var nameEl = document.querySelector("#name");
+    var dateEl = document.querySelector("#date");
+    var h1El = document.querySelector("#h1");
+    var buttonEl = document.querySelector('.button');
+    var name = nameEl.value.trim();
+    if(!name){ alert('Please enter your name');return;};
+    // if(!date){ alert('Please enter your date of birth');return;};
+    localStorage.setItem('name',name)
+    // var date = dateEl.value.trim();
+    h1El.textContent = 'WOW!! ' + name  + ' Amazinq Birthday';
+    buttonEl.setAttribute('id', 'resultsBtn');
+    buttonEl.setAttribute('href', './results.html');
+    console.log(buttonEl.getAttribute('href'));
+    $('.input').remove();
+    $('#currentDay').remove();
+    buttonEl.textContent = 'See The Night you were born' ;
+    // Clear page add new button or error message for empty field.
+
+}
+
+
+resultsEl.on('click', results)
+backgroundApi();
