@@ -15,11 +15,27 @@ h1 {
 }
 
 .backgroundImage{
-    position: relative;
+        position: relative;
     left: 25%;
     top: 50%;
     bottom: 225px;
-
+}
 button {
   margin-top: 10px;
 }
+
+/* custom scrollbar start */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: white;
+    border-color: #555;
+    border-radius: 10px;
+  }
+  /* custom scrollbar */
