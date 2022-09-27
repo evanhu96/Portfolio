@@ -23,4 +23,7 @@ h1 {
     right: 25%;
     top: 50%;
     bottom: 225px;
+
+button {
+  margin-top: 10px;
 }
