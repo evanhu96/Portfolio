@@ -26,8 +26,11 @@ function backgroundApi(){
             var background = document.createElement("img");
             background.setAttribute('src', NasaPhoto);
             document.body.appendChild(background);
-            console.log(data['url'])
+            background.classList.add("backgroundImage");
+            
         })
 }
 
 backgroundApi();
+
+// end Background Nasa API

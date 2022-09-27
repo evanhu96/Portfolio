@@ -1,14 +1,24 @@
-h1 {
-    font-family: 'Nabla';
-    font-size: 75px;
+:root {
+  background-color: black;
 }
 
+h1 {
+  font-family: 'Nabla';
+  font-size: 75px;
+}
 
-.container{
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 750px;
+}
+
+.backgroundImage {
+  position: relative;
+  left: 25%;
+  top: 50%;
+  bottom: 225px;
 }
 
 button {
