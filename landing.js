@@ -15,10 +15,12 @@ function backgroundApi(){
         })
         .then(function(data){
             console.log(data);
-
-            var background = document.querySelector('body').style.background
-
-            
+            var NasaPhoto = data['url'];
+            console.log(NasaPhoto);
+            var background = document.createElement("img");
+            background.setAttribute('src', NasaPhoto);
+            document.body.appendChild(background);
+            console.log(data['url'])
         })
 }
 
