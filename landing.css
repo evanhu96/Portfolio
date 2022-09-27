@@ -15,8 +15,12 @@ h1 {
 }
 
 .backgroundImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     left: 25%;
+    right: 25%;
     top: 50%;
     bottom: 225px;
 }
