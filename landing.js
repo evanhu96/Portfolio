@@ -16,7 +16,7 @@ function backgroundApi(){
         .then(function(data){
             console.log(data);
 
-            var background = document.querySelector('body').style
+            var background = document.querySelector('body').style.background
 
             
         })
