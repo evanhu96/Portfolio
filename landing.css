@@ -1,41 +1,50 @@
-:root{
-    background-color: black;
+:root {
+  background-color: black;
 }
 
 h1 {
-    font-family: 'Nabla';
-    font-size: 75px;
+  font-family: 'Nabla';
+  font-size: 75px;
+}
+
+p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Nabla';
+  font-size: 25px;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 750px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 750px;
 }
 
-.backgroundImage{
-        position: relative;
-    left: 25%;
-    top: 50%;
-    bottom: 225px;
+.backgroundImage {
+  position: relative;
+  left: 25%;
+  top: 50%;
+  bottom: 225px;
 }
+
 button {
   margin-top: 10px;
 }
 
 /* custom scrollbar start */
 ::-webkit-scrollbar {
-    width: 10px;
-  }
+  width: 10px;
+}
 
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 
-  ::-webkit-scrollbar-thumb {
-    background: white;
-    border-color: #555;
-    border-radius: 10px;
-  }
-  /* custom scrollbar */
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-color: #555;
+  border-radius: 10px;
+}
+/* custom scrollbar */
