@@ -1,13 +1,14 @@
 $(document).ready(function() {
-    $( function() {
+    let displayTimeEl = $('#currentDay');
+    function displayTime() {
+        var timeNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
+        displayTimeEl.text(timeNow);
+    }
+    setInterval(displayTime, 1000);
+
+    $(function() {
         $( "#datepicker" ).datepicker();
-        } );
-let displayTimeEl = $('#currentDay');
-function displayTime() {
-    var timeNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
-    displayTimeEl.text(timeNow);
-}
-setInterval(displayTime, 1000);
+    });
 });
 
 //Background NASA API 

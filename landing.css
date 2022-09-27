@@ -7,6 +7,14 @@ h1 {
   font-size: 75px;
 }
 
+p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Nabla';
+  font-size: 25px;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -24,3 +32,19 @@ h1 {
 button {
   margin-top: 10px;
 }
+
+/* custom scrollbar start */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-color: #555;
+  border-radius: 10px;
+}
+/* custom scrollbar */
