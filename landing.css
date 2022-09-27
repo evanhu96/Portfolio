@@ -13,13 +13,6 @@ h1 {
     align-items: center;
     height: 750px;
 }
-
-.backgroundImage{
-    position: relative;
-    left: 25%;
-    top: 50%;
-    bottom: 225px;
-
 button {
   margin-top: 10px;
 }
