@@ -3,9 +3,14 @@ h1 {
     font-size: 75px;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 750px;
+
+.container{
+display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 750px;
+}
+
+button {
+  margin-top: 10px;
 }
