@@ -57,7 +57,7 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     let userText = document.createElement("h1");
     document.body.appendChild(userText);
     // return and rickRoll if no name or date
-    if (!nameInput) {
+    if (!nameInput ) {
         userText.innerHTML = "Hello, please enter your name and birthday next time to avoid this terrible fate.";
         rickRoll(); return;
     }
