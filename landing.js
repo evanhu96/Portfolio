@@ -9,10 +9,10 @@ $(document).ready(function () {
     setInterval(displayTime, 1000);
     // JQuery Date picker widget function
     $(function () {
-        $("#datepicker").datepicker();
-        $("#format").on("change", function () {
-            $("#datepicker").datepicker("option", "dateFormat", $(this).val());
-        });
+        $("#datepicker").datepicker({ dateFormat: 'yy-mm-dd'}).val();
+        // $("#format").on("change", function () {
+        //     $("#datepicker").datepicker("option", "dateFormat", $(this).val());
+        // });
     });
 });
 
