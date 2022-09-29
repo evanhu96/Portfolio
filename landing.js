@@ -1,6 +1,8 @@
 var secondsLeft = 6;
+var resultsEl = $("#submitBtn");
 
-$(document).ready(function () {
+
+$(document).ready(function() {
     let displayTimeEl = $('#currentDay');
     function displayTime() {
         var timeNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
@@ -34,8 +36,6 @@ function backgroundApi() {
         })
 }
 
-backgroundApi();
-
 // end Background Nasa API\
 
 // begin form submit button
@@ -45,14 +45,15 @@ submitBtn.addEventListener("click", function nasaApi(event) {
 
     event.preventDefault();
     let nameInput = document.getElementById("nameInput").value;
-
-
+    
+    //vars for birthday input and name input
     let landingForm = document.querySelector(".container");
     landingForm.classList.add("hide")
     let backgroundImage = document.querySelector(".backgroundImage");
     backgroundImage.classList.add("hide")
+    
 
-    //insert user text 
+    //insert user name
     let userText = document.createElement("h1");
     document.body.appendChild(userText);
     // return and rickRoll if no name or date
@@ -62,6 +63,21 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     }
     userText.innerHTML = "Hello, " + nameInput + ", this is what the night sky looked like on your Birthday..."
 
+
+    //insert birthday
+    let birthday = document.getElementById("datepicker").value;
+    console.log(birthday);
+
+    //pull from nasa api and implement birthday with parameter
+    var birthdayURL = "https://api.nasa.gov/planetary/apod?api_key=KQvSzQgyY8AfMI0hIai86n2GzdEbvv3ZK9f9SVOH&date=2022-09-26"   
+    
+    fetch(birthdayURL)
+        .then(function(response){
+            return(response.json())
+        })
+        .then(function(data){
+            console.log(data);
+        })
 })
 
 
