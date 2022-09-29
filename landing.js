@@ -34,4 +34,25 @@ function backgroundApi(){
 
 backgroundApi();
 
-// end Background Nasa API
+// end Background Nasa API\
+
+// begin form submit button
+
+let submitBtn = document.getElementById("submitBtn");
+submitBtn.addEventListener("click", function nasaApi(event){
+   
+    event.preventDefault();
+    let nameInput = document.getElementById("nameInput").value;
+    
+    let landingForm = document.querySelector(".container");
+    landingForm.classList.add("hide")
+    let backgroundImage = document.querySelector(".backgroundImage");
+    backgroundImage.classList.add("hide")
+
+    //insert user text 
+    let userText = document.createElement("h1");
+    document.body.appendChild(userText);
+    userText.innerHTML = "Hello, " + nameInput + ", this is what the night sky looked like on your Birthday..."
+    
+})
+
