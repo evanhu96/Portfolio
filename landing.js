@@ -3,13 +3,16 @@ var resultsEl = $("#submitBtn");
 $(document).ready(function () {
     let displayTimeEl = $('#currentDay');
     function displayTime() {
-        var timeNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
+        var timeNow = moment().format('YYYY-MM-DD [at] hh:mm:ss a');
         displayTimeEl.text(timeNow);
     }
     setInterval(displayTime, 1000);
     // JQuery Date picker widget function
     $(function () {
-        $("#datepicker").datepicker();
+        $( "#datepicker" ).datepicker();
+    $( "#format" ).on( "change", function() {
+      $( "#datepicker" ).datepicker( "option", "dateFormat", $( this ).val() );
+    });
     });
 });
 
@@ -33,7 +36,7 @@ function backgroundApi() {
 
         });
 };
-
+backgroundApi();
 // end Background Nasa API\
 
 // begin form submit button
@@ -57,22 +60,23 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     document.body.appendChild(userText);
     userText.innerHTML = "Hello, " + nameInput + ", this is what the night sky looked like on your Birthday..."
 
-});
 
 
     //insert birthday
     let birthday = document.getElementById("datepicker").value;
-    console.log(birthday);
-
+    console.log(typeof(birthday));
+    
     //pull from nasa api and implement birthday with parameter
-    var birthdayURL = "https://api.nasa.gov/planetary/apod?api_key=KQvSzQgyY8AfMI0hIai86n2GzdEbvv3ZK9f9SVOH&date=2022-09-26"   
+    var birthdayURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=KQvSzQgyY8AfMI0hIai86n2GzdEbvv3ZK9f9SVOH&earth_date=${birthday}`
     
     fetch(birthdayURL)
-        .then(function(response){
-            return(response.json())
-        })
-        .then(function(data){
-            console.log(data);
-        })
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data){
+        console.log(data);
+    })
+});
+
     
 
