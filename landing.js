@@ -1,3 +1,4 @@
+var secondsLeft = 6;
 var resultsEl = $("#submitBtn");
 // JQuery UI Caller
 $(document).ready(function () {
@@ -53,6 +54,11 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     //insert user name
     let userText = document.createElement("h1");
     document.body.appendChild(userText);
+    // return and rickRoll if no name or date
+    if (!nameInput) {
+        userText.innerHTML = "Hello, please enter your name and birthday next time to avoid this terrible fate.";
+        rickRoll(); return;
+    }
     userText.innerHTML = "Hello, " + nameInput + ", this is what the night sky looked like on your Birthday..."
 
     //insert birthday
@@ -70,4 +76,30 @@ submitBtn.addEventListener("click", function nasaApi(event) {
         console.log(data);
     })
 });
+
+
+
+
+
+function rickRoll() {
+    // Sets interval in variable
+    let timer = document.createElement("h1");
+    // center
+    timer.setAttribute("style", "font-size: 50px; font-weight: bold; text-align:center; ");
+    document.body.appendChild(timer);
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        console.log(secondsLeft);
+        if (secondsLeft > 0) { timer.textContent = secondsLeft };
+        if ((secondsLeft <= 0)) {
+            // Stops execution of action at set interval
+            clearInterval(timerInterval);
+            timer.textContent = '';
+            window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+        }
+    
+            // Calls function to create and append image
+    
+    }, 1000);
+}
 
