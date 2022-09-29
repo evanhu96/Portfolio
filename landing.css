@@ -23,17 +23,18 @@ p {
 }
 
 .backgroundImage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    left: 25%;
-    top: 50%;
-    bottom: 225px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 25%;
+  top: 50%;
+  bottom: 225px;
 }
 
 button {
   margin-top: 10px;
+  z-index: 0;
 }
 
 /* custom scrollbar start */

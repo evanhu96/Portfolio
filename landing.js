@@ -1,21 +1,20 @@
 var secondsLeft = 6;
 var resultsEl = $("#submitBtn");
-
-
-$(document).ready(function() {
+// JQuery UI Caller
+$(document).ready(function () {
     let displayTimeEl = $('#currentDay');
     function displayTime() {
         var timeNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
         displayTimeEl.text(timeNow);
     }
     setInterval(displayTime, 1000);
-
+    // JQuery Date picker widget function
     $(function () {
         $("#datepicker").datepicker();
     });
 });
 
-//Background NASA API 
+// Background NASA API 
 
 function backgroundApi() {
     var requestUrl = "https://api.nasa.gov/planetary/apod?api_key=KQvSzQgyY8AfMI0hIai86n2GzdEbvv3ZK9f9SVOH"
@@ -47,6 +46,7 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     let nameInput = document.getElementById("nameInput").value;
     
     //vars for birthday input and name input
+
     let landingForm = document.querySelector(".container");
     landingForm.classList.add("hide")
     let backgroundImage = document.querySelector(".backgroundImage");
@@ -64,6 +64,8 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     userText.innerHTML = "Hello, " + nameInput + ", this is what the night sky looked like on your Birthday..."
 
 
+
+
     //insert birthday
     let birthday = document.getElementById("datepicker").value;
     console.log(birthday);
@@ -78,9 +80,9 @@ submitBtn.addEventListener("click", function nasaApi(event) {
         .then(function(data){
             console.log(data);
         })
-})
+    
 
-
+    });
 
 function rickRoll() {
     // Sets interval in variable
