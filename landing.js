@@ -35,31 +35,25 @@ function backgroundApi(){
         })
 }
 
+// end Background Nasa API\
 
-// end Background Nasa API
-function results (){
+// begin form submit button
 
-    console.log('here');
-    var nameEl = document.querySelector("#name");
-    var dateEl = document.querySelector("#date");
-    var h1El = document.querySelector("#h1");
-    var buttonEl = document.querySelector('.button');
-    var name = nameEl.value.trim();
-    if(!name){ alert('Please enter your name');return;};
-    // if(!date){ alert('Please enter your date of birth');return;};
-    localStorage.setItem('name',name)
-    // var date = dateEl.value.trim();
-    h1El.textContent = 'WOW!! ' + name  + ' Amazinq Birthday';
-    buttonEl.setAttribute('id', 'resultsBtn');
-    buttonEl.setAttribute('href', './results.html');
-    console.log(buttonEl.getAttribute('href'));
-    $('.input').remove();
-    $('#currentDay').remove();
-    buttonEl.textContent = 'See The Night you were born' ;
-    // Clear page add new button or error message for empty field.
+let submitBtn = document.getElementById("submitBtn");
+submitBtn.addEventListener("click", function nasaApi(event){
+   
+    event.preventDefault();
+    let nameInput = document.getElementById("nameInput").value;
+    
+    let landingForm = document.querySelector(".container");
+    landingForm.classList.add("hide")
+    let backgroundImage = document.querySelector(".backgroundImage");
+    backgroundImage.classList.add("hide")
 
-}
+    //insert user text 
+    let userText = document.createElement("h1");
+    document.body.appendChild(userText);
+    userText.innerHTML = "Hello, " + nameInput + ", this is what the night sky looked like on your Birthday..."
+    
+})
 
-
-resultsEl.on('click', results)
-backgroundApi();
