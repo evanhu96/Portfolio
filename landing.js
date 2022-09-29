@@ -10,6 +10,9 @@ $(document).ready(function () {
     // JQuery Date picker widget function
     $(function () {
         $("#datepicker").datepicker();
+        $("#format").on("change", function () {
+            $("#datepicker").datepicker("option", "dateFormat", $(this).val());
+        });
     });
 });
 
@@ -44,13 +47,13 @@ submitBtn.addEventListener("click", function nasaApi(event) {
 
     event.preventDefault();
     let nameInput = document.getElementById("nameInput").value;
-    
+
     //vars for birthday input and name input
     let landingForm = document.querySelector(".container");
     landingForm.classList.add("hide")
     let backgroundImage = document.querySelector(".backgroundImage");
     backgroundImage.classList.add("hide")
-    
+
     //insert user name
     let userText = document.createElement("h1");
     document.body.appendChild(userText);
@@ -58,17 +61,17 @@ submitBtn.addEventListener("click", function nasaApi(event) {
 
 });
 
-    //insert birthday
-    let birthday = document.getElementById("datepicker").value;
-    console.log(birthday);
+//insert birthday
+let birthday = document.getElementById("datepicker").value;
+console.log(birthday);
 
-    //pull from nasa api and implement birthday with parameter
-    var birthdayURL = "https://api.nasa.gov/planetary/apod?api_key=KQvSzQgyY8AfMI0hIai86n2GzdEbvv3ZK9f9SVOH&date=2022-09-26"   
-    
-    fetch(birthdayURL)
-        .then(function(response){
-            return(response.json())
-        })
-        .then(function(data){
-            console.log(data);
-        })
+//pull from nasa api and implement birthday with parameter
+var birthdayURL = "https://api.nasa.gov/planetary/apod?api_key=KQvSzQgyY8AfMI0hIai86n2GzdEbvv3ZK9f9SVOH&date=2022-09-26"
+
+fetch(birthdayURL)
+    .then(function (response) {
+        return (response.json())
+    })
+    .then(function (data) {
+        console.log(data);
+    })
