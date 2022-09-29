@@ -1,3 +1,4 @@
+// Function to call JQuery and call the moment.js method
 $(document).ready(function() {
     let displayTimeEl = $('#currentDay');
     function displayTime() {
@@ -5,7 +6,7 @@ $(document).ready(function() {
         displayTimeEl.text(timeNow);
     }
     setInterval(displayTime, 1000);
-
+// JQuery Date picker widget function
     $(function() {
         $( "#datepicker" ).datepicker();
     });
@@ -35,3 +36,29 @@ function backgroundApi(){
 backgroundApi();
 
 // end Background Nasa API
+
+// Function to handle submit form
+var submitFormEl = document.querySelector('#form-submit')
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+
+    var formInputVal = document.querySelector('#form-input').value;
+    var birthInputVal = document.querySelector('#birth-input').value;
+
+    if (!formInputVal) {
+        console.error('Please Enter Your Name');
+        return;
+    } else if (!birthInputVal) {
+        console.error('Please enter Valid Birthdate');
+        return;
+    }
+    
+    var queryString = './submit.result.html?q=' + formInputVal + '&birth=' + birthInputVal;
+
+    location.assign(queryString);
+}
+
+submitFormEl = addEventListener('submit', handleFormSubmit);
+
+// end submit form
