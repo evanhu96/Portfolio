@@ -32,7 +32,7 @@ p {
   bottom: 225px;
 }
 
-button {
+#submitBtn {
   margin-top: 10px;
   z-index: 0;
 }

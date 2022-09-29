@@ -3,7 +3,7 @@ var resultsEl = $("#submitBtn");
 $(document).ready(function () {
     let displayTimeEl = $('#currentDay');
     function displayTime() {
-        var timeNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
+        var timeNow = moment().format('YYYY MMM DD, [at] hh:mm:ss a');
         displayTimeEl.text(timeNow);
     }
     setInterval(displayTime, 1000);
@@ -33,6 +33,7 @@ function backgroundApi() {
 
         });
 };
+backgroundApi();
 
 // end Background Nasa API\
 
