@@ -13,7 +13,7 @@ $(document).ready(function () {
     });
 });
 
-// Background NASA API 
+// Background NASA API - begin
 
 function backgroundApi() {
     var requestUrl = "https://api.nasa.gov/planetary/apod?api_key=KQvSzQgyY8AfMI0hIai86n2GzdEbvv3ZK9f9SVOH"
@@ -33,7 +33,7 @@ function backgroundApi() {
 
         });
 };
-backgroundApi();
+backgroundApi(); //calling function.
 
 // end Background Nasa API\
 
@@ -46,20 +46,17 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     let nameInput = document.getElementById("nameInput").value;
     
     //vars for birthday input and name input
-
     let landingForm = document.querySelector(".container");
     landingForm.classList.add("hide")
     let backgroundImage = document.querySelector(".backgroundImage");
     backgroundImage.classList.add("hide")
     
-
     //insert user name
     let userText = document.createElement("h1");
     document.body.appendChild(userText);
     userText.innerHTML = "Hello, " + nameInput + ", this is what the night sky looked like on your Birthday..."
 
 });
-
 
     //insert birthday
     let birthday = document.getElementById("datepicker").value;
@@ -75,4 +72,3 @@ submitBtn.addEventListener("click", function nasaApi(event) {
         .then(function(data){
             console.log(data);
         })
-
