@@ -1,3 +1,6 @@
+var resultsEl = $("#submitBtn");
+
+
 $(document).ready(function() {
     let displayTimeEl = $('#currentDay');
     function displayTime() {
@@ -31,8 +34,6 @@ function backgroundApi(){
             
         })
 }
-
-backgroundApi();
 
 // end Background Nasa API\
 
