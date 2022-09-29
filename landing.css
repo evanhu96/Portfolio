@@ -52,3 +52,7 @@ button {
   border-radius: 10px;
 }
 /* custom scrollbar */
+
+.hide{
+  display:none;
+}

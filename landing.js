@@ -1,27 +1,28 @@
-// Function to call JQuery and call the moment.js method
-$(document).ready(function() {
+var resultsEl = $("#submitBtn");
+// JQuery UI Caller
+$(document).ready(function () {
     let displayTimeEl = $('#currentDay');
     function displayTime() {
         var timeNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
         displayTimeEl.text(timeNow);
     }
     setInterval(displayTime, 1000);
-// JQuery Date picker widget function
-    $(function() {
-        $( "#datepicker" ).datepicker();
+    // JQuery Date picker widget function
+    $(function () {
+        $("#datepicker").datepicker();
     });
 });
 
-//Background NASA API 
+// Background NASA API 
 
-function backgroundApi(){
+function backgroundApi() {
     var requestUrl = "https://api.nasa.gov/planetary/apod?api_key=KQvSzQgyY8AfMI0hIai86n2GzdEbvv3ZK9f9SVOH"
 
     fetch(requestUrl)
-        .then (function (response){
+        .then(function (response) {
             return response.json();
         })
-        .then(function(data){
+        .then(function (data) {
             console.log(data);
             var NasaPhoto = data['url'];
             console.log(NasaPhoto);
@@ -29,36 +30,29 @@ function backgroundApi(){
             background.setAttribute('src', NasaPhoto);
             document.body.appendChild(background);
             background.classList.add("backgroundImage");
-            
-        })
-}
 
-backgroundApi();
+        });
+};
 
-// end Background Nasa API
+// end Background Nasa API\
 
-// Function to handle submit form
-var submitFormEl = document.querySelector('#form-submit')
+// begin form submit button
 
-function handleFormSubmit(event) {
+let submitBtn = document.getElementById("submitBtn");
+submitBtn.addEventListener("click", function nasaApi(event) {
+
     event.preventDefault();
+    let nameInput = document.getElementById("nameInput").value;
 
-    var formInputVal = document.querySelector('#form-input').value;
-    var birthInputVal = document.querySelector('#birth-input').value;
+    let landingForm = document.querySelector(".container");
+    landingForm.classList.add("hide")
+    let backgroundImage = document.querySelector(".backgroundImage");
+    backgroundImage.classList.add("hide")
 
-    if (!formInputVal) {
-        console.error('Please Enter Your Name');
-        return;
-    } else if (!birthInputVal) {
-        console.error('Please enter Valid Birthdate');
-        return;
-    }
-    
-    var queryString = './submit.result.html?q=' + formInputVal + '&birth=' + birthInputVal;
+    //insert user text 
+    let userText = document.createElement("h1");
+    document.body.appendChild(userText);
+    userText.innerHTML = "Hello, " + nameInput + ", this is what the night sky looked like on your Birthday..."
 
-    location.assign(queryString);
-}
+});
 
-submitFormEl = addEventListener('submit', handleFormSubmit);
-
-// end submit form
