@@ -29,11 +29,11 @@ function backgroundApi() {
             console.log(NasaPhoto);
             var background = document.createElement("img");
             background.setAttribute('src', NasaPhoto);
+            background.setAttribute('id', 'image');
             document.body.appendChild(background);
             background.classList.add("backgroundImage");
-
         });
-};
+}; 
 backgroundApi();
 // end Background Nasa API\
 
@@ -103,3 +103,8 @@ function rickRoll() {
     }, 1000);
 }
 
+// function to show NASA Image of the Day when pressed.
+function show() {
+    document.getElementById('image').style.display = "block";
+    document.getElementById('btnId').style.display = "none";
+};

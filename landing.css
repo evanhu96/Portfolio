@@ -12,7 +12,7 @@ p {
   align-items: center;
   justify-content: center;
   font-family: 'Nabla';
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .container {
@@ -27,9 +27,13 @@ p {
   justify-content: center;
   align-items: center;
   position: relative;
-  left: 25%;
+  left: 16.5%;
   top: 50%;
   bottom: 225px;
+  margin-top: auto;
+  padding-top: auto;
+  border: solid 1px white;
+  scale: 0.5;
 }
 
 #submitBtn {
@@ -55,4 +59,13 @@ p {
 
 .hide{
   display: none;
+}
+
+#image {
+  display: none;
+}
+
+body {
+  background-image: url(./assets/image/giphy.gif);
+  background-repeat: repeat;
 }
