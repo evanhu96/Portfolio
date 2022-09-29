@@ -3,17 +3,20 @@ var resultsEl = $("#submitBtn");
 $(document).ready(function () {
     let displayTimeEl = $('#currentDay');
     function displayTime() {
-        var timeNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
+        var timeNow = moment().format('YYYY MMM DD, [at] hh:mm:ss a');
         displayTimeEl.text(timeNow);
     }
     setInterval(displayTime, 1000);
     // JQuery Date picker widget function
     $(function () {
-        $("#datepicker").datepicker();
+        $("#datepicker").datepicker({ dateFormat: 'yy-mm-dd'}).val();
+        // $("#format").on("change", function () {
+        //     $("#datepicker").datepicker("option", "dateFormat", $(this).val());
+        // });
     });
 });
 
-// Background NASA API 
+// Background NASA API - begin
 
 function backgroundApi() {
     var requestUrl = "https://api.nasa.gov/planetary/apod?api_key=KQvSzQgyY8AfMI0hIai86n2GzdEbvv3ZK9f9SVOH"
@@ -33,6 +36,7 @@ function backgroundApi() {
 
         });
 };
+backgroundApi(); //calling function.
 
 // end Background Nasa API\
 
@@ -43,14 +47,12 @@ submitBtn.addEventListener("click", function nasaApi(event) {
 
     event.preventDefault();
     let nameInput = document.getElementById("nameInput").value;
-    
-    //vars for birthday input and name input
 
+    //vars for birthday input and name input
     let landingForm = document.querySelector(".container");
     landingForm.classList.add("hide")
     let backgroundImage = document.querySelector(".backgroundImage");
     backgroundImage.classList.add("hide")
-    
 
     //insert user name
     let userText = document.createElement("h1");
@@ -59,20 +61,17 @@ submitBtn.addEventListener("click", function nasaApi(event) {
 
 });
 
+//insert birthday
+let birthday = document.getElementById("datepicker").value;
+console.log(birthday);
 
-    //insert birthday
-    let birthday = document.getElementById("datepicker").value;
-    console.log(birthday);
+//pull from nasa api and implement birthday with parameter
+var birthdayURL = "https://api.nasa.gov/planetary/apod?api_key=KQvSzQgyY8AfMI0hIai86n2GzdEbvv3ZK9f9SVOH&date=2022-09-26"
 
-    //pull from nasa api and implement birthday with parameter
-    var birthdayURL = "https://api.nasa.gov/planetary/apod?api_key=KQvSzQgyY8AfMI0hIai86n2GzdEbvv3ZK9f9SVOH&date=2022-09-26"   
-    
-    fetch(birthdayURL)
-        .then(function(response){
-            return(response.json())
-        })
-        .then(function(data){
-            console.log(data);
-        })
-})
-
+fetch(birthdayURL)
+    .then(function (response) {
+        return (response.json())
+    })
+    .then(function (data) {
+        console.log(data);
+    })
