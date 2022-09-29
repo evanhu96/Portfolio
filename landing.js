@@ -10,9 +10,6 @@ $(document).ready(function () {
     // JQuery Date picker widget function
     $(function () {
         $("#datepicker").datepicker({ dateFormat: 'yy-mm-dd'}).val();
-        // $("#format").on("change", function () {
-        //     $("#datepicker").datepicker("option", "dateFormat", $(this).val());
-        // });
     });
 });
 
@@ -74,12 +71,3 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     })
 });
 
-    
-
-fetch(birthdayURL)
-    .then(function (response) {
-        return (response.json())
-    })
-    .then(function (data) {
-        console.log(data);
-    })
