@@ -16,7 +16,7 @@ $(document).ready(function () {
 
 // Background NASA API - begin
 
-function backgroundApi() {
+function backgroundApi(background) {
     var requestUrl = "https://api.nasa.gov/planetary/apod?api_key=KQvSzQgyY8AfMI0hIai86n2GzdEbvv3ZK9f9SVOH"
 
     fetch(requestUrl)
@@ -41,7 +41,6 @@ backgroundApi();
 
 let submitBtn = document.getElementById("submitBtn");
 submitBtn.addEventListener("click", function nasaApi(event) {
-
     event.preventDefault();
     let nameInput = document.getElementById("nameInput").value;
 
@@ -52,14 +51,14 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     backgroundImage.classList.add("hide")
 
     //insert user name
-    let userText = document.createElement("h1");
-    document.body.appendChild(userText);
-    // return and rickRoll if no name or date
-    if (!nameInput) {
-        userText.innerHTML = "Hello, please enter your name and birthday next time to avoid this terrible fate.";
-        rickRoll(); return;
-    }
-    userText.innerHTML = "Hello, " + nameInput + ", this is what the night sky looked like on your Birthday..."
+     let userText = document.createElement("h1");
+     document.body.appendChild(userText);
+     // return and rickRoll if no name or date
+     if (!nameInput) {
+         userText.innerHTML = "Hello, please enter your name and birthday next time to avoid this terrible fate.";
+         rickRoll(); return;
+     }
+    userText.innerHTML = "Hello, " + nameInput + ", this is an image the Mars Rover took on your Birthday.." 
 
     //insert birthday
     let birthday = document.getElementById("datepicker").value;
@@ -74,34 +73,39 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     })
     .then(function(data){
         console.log(data);
+
+        let roverImg = data.photos[4].img_src;
+
+        let roverInput = document.createElement("img");
+        roverInput.setAttribute("src", roverImg);
+        document.body.appendChild(roverInput);
+        roverInput.classList.add("backgroundImage")
     })
+
+    
 });
 
-
-
-
-
-function rickRoll() {
-    // Sets interval in variable
-    let timer = document.createElement("h1");
-    // center
-    timer.setAttribute("style", "font-size: 50px; font-weight: bold; text-align:center; ");
-    document.body.appendChild(timer);
-    var timerInterval = setInterval(function () {
-        secondsLeft--;
-        console.log(secondsLeft);
-        if (secondsLeft > 0) { timer.textContent = secondsLeft };
-        if ((secondsLeft <= 0)) {
-            // Stops execution of action at set interval
-            clearInterval(timerInterval);
-            timer.textContent = '';
-            window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
-        }
+// function rickRoll() {
+//     // Sets interval in variable
+//     let timer = document.createElement("h1");
+//     // center
+//     timer.setAttribute("style", "font-size: 50px; font-weight: bold; text-align:center; ");
+//     document.body.appendChild(timer);
+//     var timerInterval = setInterval(function () {
+//         secondsLeft--;
+//         console.log(secondsLeft);
+//         if (secondsLeft > 0) { timer.textContent = secondsLeft };
+//         if ((secondsLeft <= 0)) {
+//             // Stops execution of action at set interval
+//             clearInterval(timerInterval);
+//             timer.textContent = '';
+//             window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+//         }
     
-            // Calls function to create and append image
+//             // Calls function to create and append image
     
-    }, 1000);
-}
+//     }, 1000);
+// }
 
 // function to show NASA Image of the Day when pressed.
 function show() {
