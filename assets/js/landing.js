@@ -51,13 +51,13 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     backgroundImage.classList.add("hide")
 
     //insert user name
-     let userText = document.createElement("h1");
-     document.body.appendChild(userText);
-     // return and rickRoll if no name or date
-     if (!nameInput) {
-         userText.innerHTML = "Hello, please enter your name and birthday next time to avoid this terrible fate.";
-         rickRoll(); return;
-     }
+    let userText = document.createElement("h1");
+    document.body.appendChild(userText);
+    // return and rickRoll if no name or date
+    if (!nameInput) {
+        userText.innerHTML = "Hello, please enter your name and birthday next time to avoid this terrible fate.";
+        rickRoll(); return;
+    }
     userText.innerHTML = "Hello, " + nameInput + ", this is an image the Mars Rover took on your Birthday.." 
 
     //insert birthday
@@ -111,4 +111,8 @@ submitBtn.addEventListener("click", function nasaApi(event) {
 function show() {
     document.getElementById('image').style.display = "block";
     document.getElementById('btnId').style.display = "none";
+};
+
+function hide() {
+    document.getElementById('image').style.display = "none";
 };
