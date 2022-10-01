@@ -85,27 +85,27 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     
 });
 
-// function rickRoll() {
-//     // Sets interval in variable
-//     let timer = document.createElement("h1");
-//     // center
-//     timer.setAttribute("style", "font-size: 50px; font-weight: bold; text-align:center; ");
-//     document.body.appendChild(timer);
-//     var timerInterval = setInterval(function () {
-//         secondsLeft--;
-//         console.log(secondsLeft);
-//         if (secondsLeft > 0) { timer.textContent = secondsLeft };
-//         if ((secondsLeft <= 0)) {
-//             // Stops execution of action at set interval
-//             clearInterval(timerInterval);
-//             timer.textContent = '';
-//             window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
-//         }
+function rickRoll() {
+    // Sets interval in variable
+    let timer = document.createElement("h1");
+    // center
+    timer.setAttribute("style", "font-size: 50px; font-weight: bold; text-align:center; ");
+    document.body.appendChild(timer);
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        console.log(secondsLeft);
+        if (secondsLeft > 0) { timer.textContent = secondsLeft };
+        if ((secondsLeft <= 0)) {
+            // Stops execution of action at set interval
+            clearInterval(timerInterval);
+            timer.textContent = '';
+            window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+        }
     
-//             // Calls function to create and append image
+            // Calls function to create and append image
     
-//     }, 1000);
-// }
+    }, 1000);
+}
 
 // function to show NASA Image of the Day when pressed.
 function show() {
@@ -116,3 +116,40 @@ function show() {
 function hide() {
     document.getElementById('image').style.display = "none";
 };
+
+// window.onSpotifyWebPlaybackSDKReady = () => {
+//     const token = 'BQDg0-9CXMoHD2JzoNWAvv-O0I4G5NU1KFroJxnU8NrwTFrigIwmGfKiSgUjzAfrBMw0LF9jvtpTQ_33hv5Ql0KWFS6fTxQBIcj0sohItiOxJ38ucxro53o7IYCAYoxla98q9jhgDHhwstK_5uXjka-IJ1FC_7GEDYXbeekGRYVFD1lNVRufDE0myPV5kccWY9I';
+//     const player = new Spotify.Player({
+//         name: 'Web Playback SDK Quick Start Player',
+//         getOAuthToken: cb => { cb(token); },
+//         volume: 0.5
+//     });
+
+//     // Ready
+//     player.addListener('ready', ({ device_id }) => {
+//         console.log('Ready with Device ID', device_id);
+//     });
+
+//     // Not Ready
+//     player.addListener('not_ready', ({ device_id }) => {
+//         console.log('Device ID has gone offline', device_id);
+//     });
+
+//     player.addListener('initialization_error', ({ message }) => {
+//         console.error(message);
+//     });
+
+//     player.addListener('authentication_error', ({ message }) => {
+//         console.error(message);
+//     });
+
+//     player.addListener('account_error', ({ message }) => {
+//         console.error(message);
+//     });
+
+//     document.getElementById('togglePlay').onclick = function() {
+//     player.togglePlay();
+//     };
+
+//     player.connect();
+// };
