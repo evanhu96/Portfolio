@@ -1,10 +1,9 @@
-# Space-Music
-This application's functionality is to show NASA Mars Rover's image on the date the user inputs, and the top song that was charting the year that the user was born. 
-# Space Music!
+# Space-Zone
+This application's functionality is to show NASA Mars Rover's image on the date the user inputs, and also shows a randomly generated quote on the main page. 
 
 ## Description
 
-This application is meant to be interactive application that uses the NASA API and Spotify API to output a song and a NASA archived image, depending on the user's input in the name and birthday fields. 
+This application is meant to be interactive application that uses the NASA API and Advice API to output a random quote and a NASA archived image, depending on the user's input in the name and birthday fields. 
 
 ## Installation
 

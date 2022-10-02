@@ -18,6 +18,7 @@ p {
   justify-content: center;
   font-family: 'Nabla';
   font-size: 20px;
+  color: white;
 }
 
 .container {
@@ -76,3 +77,4 @@ body {
   background-image: url("giphy.gif");
   background-repeat: repeat;
 }
+
