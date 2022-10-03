@@ -33,6 +33,7 @@ function backgroundApi(background) {
             document.body.appendChild(background);
             background.classList.add("backgroundImage");
         });
+        
 }; 
 backgroundApi();
 // end Background Nasa API\
@@ -82,7 +83,7 @@ submitBtn.addEventListener("click", function nasaApi(event) {
         roverInput.classList.add("backgroundImage")
     })
 
-    
+    hide();
 });
 
 function rickRoll() {
@@ -111,10 +112,13 @@ function rickRoll() {
 function show() {
     document.getElementById('image').style.display = "block";
     document.getElementById('btnId').style.display = "none";
+    document.getElementById("letsGoP").style.display = "none";
+    document.querySelector("h3").style.display = "none";
 };
 
 function hide() {
     document.getElementById('image').style.display = "none";
+    document.querySelector("h3").style.display = "none";
 };
 
 // window.onSpotifyWebPlaybackSDKReady = () => {
