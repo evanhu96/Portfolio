@@ -33,6 +33,7 @@ function backgroundApi(background) {
             document.body.appendChild(background);
             background.classList.add("backgroundImage");
         });
+        
 }; 
 backgroundApi();
 // end Background Nasa API\
@@ -55,12 +56,16 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     document.body.appendChild(userText);
     // return and rickRoll if no name or date
     if (!nameInput) {
+<<<<<<< HEAD
         document.body.setAttribute("style" , "background-image:none")
 
         userText.innerHTML = "Hello, please enter your name and birthday next time to avoid this terrible fate.";
+=======
+        userText.innerHTML = "Hello, please enter your name and select a date next time to avoid this terrible fate.";
+>>>>>>> e2cb969e23d6c1f629e517f6770816b542d86dee
         rickRoll(); return;
     }
-    userText.innerHTML = "Hello, " + nameInput + ", this is an image the Mars Rover took on your Birthday.." 
+    userText.innerHTML = "Hello, " + nameInput + ", this is an image the Mars Rover took on the date you selected.." 
 
     //insert birthday
     let birthday = document.getElementById("datepicker").value;
@@ -84,7 +89,7 @@ submitBtn.addEventListener("click", function nasaApi(event) {
         roverInput.classList.add("backgroundImage")
     })
 
-    
+    hide();
 });
 
 function rickRoll() {
@@ -113,12 +118,16 @@ function rickRoll() {
 function show() {
     document.getElementById('image').style.display = "block";
     document.getElementById('btnId').style.display = "none";
+    document.getElementById("letsGoP").style.display = "none";
+    document.querySelector("h3").style.display = "none";
 };
 
 function hide() {
     document.getElementById('image').style.display = "none";
+    document.querySelector("h3").style.display = "none";
 };
 
+<<<<<<< HEAD
 // window.onSpotifyWebPlaybackSDKReady = () => {
 //     const token = 'BQAGi3kW8dpka9855QksoFCm1sE4bGOW24TSKbpP_PjFZag6LRqs6lnkJkFXbHdQ3ylLX_6s1T_8lGMqeSJwFR_YkYNTdk3kN8pKbPFGHJw09LyONV9BMCCtxFeiuAqr2yzMZMfMC9JcNznx2qqunWMyD9vbz8koMmtEeDs_3jlV2Oi4VvhSWLwFc0bxZsbX7k8';
 //     const player = new Spotify.Player({
@@ -126,29 +135,32 @@ function hide() {
 //         getOAuthToken: cb => { cb(token); },
 //         volume: 0.5
 //     });
+=======
+// Advice API, random quote generator, begin 
+>>>>>>> e2cb969e23d6c1f629e517f6770816b542d86dee
 
-//     // Ready
-//     player.addListener('ready', ({ device_id }) => {
-//         console.log('Ready with Device ID', device_id);
-//     });
+const API_URL = "https://api.adviceslip.com/advice";
+function get(url) {return fetch(url).then(resp => resp.json())};
+const API = { get };
 
-//     // Not Ready
-//     player.addListener('not_ready', ({ device_id }) => {
-//         console.log('Device ID has gone offline', device_id);
-//     });
+const quoteP = document.querySelector("p#quote");
+const bground = document.querySelector("body");
 
-//     player.addListener('initialization_error', ({ message }) => {
-//         console.error(message);
-//     });
+const fontType = ["Nabla"];
+const colors = ["#FFCDD2", "#FCE4EC", "#F3E5F5", "#8C9EFF", "#90CAF9", "#80D8FF", "#80DEEA", "#B2DFDB", "#69F0AE", "#AED581", "#AED581", "#FFC400", "#BCAAA4", "#90A4AE"];
 
-//     player.addListener('authentication_error', ({ message }) => {
-//         console.error(message);
-//     });
+function getQuotes() {
+    API.get(API_URL).then(data => addQuote(data['slip']['advice']))
+};
 
-//     player.addListener('account_error', ({ message }) => {
-//         console.error(message);
-//     });
+function addQuote(quote) {
+    quoteP.innerText = quote;
+    let fontsNum = Math.floor(Math.random()*fontType.length);
+    let colorsNum = Math.floor(Math.random()*colors.length);
+    quoteP.style.fontFamily = fontType[fontsNum];
+    bground.style.backgroundColor = colors[colorsNum]}
 
+<<<<<<< HEAD
 //     // document.getElementById('togglePlay').onclick = function() {
 //     // player.togglePlay();
 //     // };
@@ -180,3 +192,11 @@ const play = ({
     playerInstance: new Spotify.Player({ name: "..." }),
     spotify_uri: 'spotify:track:7xGfFoTpQ2E7fRF5lN10tr',
   });
+=======
+    const reloadButton = document.querySelector("button#reload")
+reloadButton.addEventListener("click", ()=> getQuotes());
+
+document.body.onload = getQuotes;
+
+// Advice API end
+>>>>>>> e2cb969e23d6c1f629e517f6770816b542d86dee
