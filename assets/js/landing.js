@@ -57,6 +57,7 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     // return and rickRoll if no name or date
     if (!nameInput) {
         document.body.setAttribute("style" , "background-image:none")
+        $('h3').remove();
 
         userText.innerHTML = "Hello, please enter your name and birthday next time to avoid this terrible fate.";
         rickRoll(); return;

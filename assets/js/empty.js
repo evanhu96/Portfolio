@@ -13,7 +13,7 @@ function done() {
             // Stops execution of action at set interval
             clearInterval(timerInterval);
             timer.textContent = '';
-            window.location.href = './landing.html';
+            window.location.href = './index.html';
         }
     
             // Calls function to create and append image
