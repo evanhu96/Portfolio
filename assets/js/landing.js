@@ -117,42 +117,7 @@ function hide() {
     document.getElementById('image').style.display = "none";
 };
 
-// window.onSpotifyWebPlaybackSDKReady = () => {
-//     const token = 'BQDg0-9CXMoHD2JzoNWAvv-O0I4G5NU1KFroJxnU8NrwTFrigIwmGfKiSgUjzAfrBMw0LF9jvtpTQ_33hv5Ql0KWFS6fTxQBIcj0sohItiOxJ38ucxro53o7IYCAYoxla98q9jhgDHhwstK_5uXjka-IJ1FC_7GEDYXbeekGRYVFD1lNVRufDE0myPV5kccWY9I';
-//     const player = new Spotify.Player({
-//         name: 'Web Playback SDK Quick Start Player',
-//         getOAuthToken: cb => { cb(token); },
-//         volume: 0.5
-//     });
-
-//     // Ready
-//     player.addListener('ready', ({ device_id }) => {
-//         console.log('Ready with Device ID', device_id);
-//     });
-
-//     // Not Ready
-//     player.addListener('not_ready', ({ device_id }) => {
-//         console.log('Device ID has gone offline', device_id);
-//     });
-
-//     player.addListener('initialization_error', ({ message }) => {
-//         console.error(message);
-//     });
-
-//     player.addListener('authentication_error', ({ message }) => {
-//         console.error(message);
-//     });
-
-//     player.addListener('account_error', ({ message }) => {
-//         console.error(message);
-//     });
-
-//     document.getElementById('togglePlay').onclick = function() {
-//     player.togglePlay();
-//     };
-
-//     player.connect();
-// };
+// Advice API, random quote generator, begin 
 
 const API_URL = "https://api.adviceslip.com/advice";
 function get(url) {return fetch(url).then(resp => resp.json())};
@@ -161,7 +126,7 @@ const API = { get };
 const quoteP = document.querySelector("p#quote");
 const bground = document.querySelector("body");
 
-const fontType = ["Roboto Mono", "Roboto Slab", "Abril Fatface", "Notable", "Bungee"];
+const fontType = ["Nabla"];
 const colors = ["#FFCDD2", "#FCE4EC", "#F3E5F5", "#8C9EFF", "#90CAF9", "#80D8FF", "#80DEEA", "#B2DFDB", "#69F0AE", "#AED581", "#AED581", "#FFC400", "#BCAAA4", "#90A4AE"];
 
 function getQuotes() {
@@ -179,3 +144,5 @@ function addQuote(quote) {
 reloadButton.addEventListener("click", ()=> getQuotes());
 
 document.body.onload = getQuotes;
+
+// Advice API end
