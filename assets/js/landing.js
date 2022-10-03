@@ -56,7 +56,10 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     document.body.appendChild(userText);
     // return and rickRoll if no name or date
     if (!nameInput) {
-        userText.innerHTML = "Hello, please enter your name and select a date next time to avoid this terrible fate.";
+        document.body.setAttribute("style" , "background-image:none")
+        $('h3').remove();
+
+        userText.innerHTML = "Hello, please enter your name and birthday next time to avoid this terrible fate.";
         rickRoll(); return;
     }
     userText.innerHTML = "Hello, " + nameInput + ", this is an image the Mars Rover took on the date you selected.." 
