@@ -1,4 +1,4 @@
-var secondsLeft = 6;
+var secondsLeft = 5;
 var resultsEl = $("#submitBtn");
 // JQuery UI Caller
 $(document).ready(function () {
@@ -55,6 +55,8 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     document.body.appendChild(userText);
     // return and rickRoll if no name or date
     if (!nameInput) {
+        document.body.setAttribute("style" , "background-image:none")
+
         userText.innerHTML = "Hello, please enter your name and birthday next time to avoid this terrible fate.";
         rickRoll(); return;
     }
@@ -99,7 +101,7 @@ function rickRoll() {
             // Stops execution of action at set interval
             clearInterval(timerInterval);
             timer.textContent = '';
-            window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+            window.location.href = './empty.html';
         }
     
             // Calls function to create and append image
@@ -118,7 +120,7 @@ function hide() {
 };
 
 // window.onSpotifyWebPlaybackSDKReady = () => {
-//     const token = 'BQDg0-9CXMoHD2JzoNWAvv-O0I4G5NU1KFroJxnU8NrwTFrigIwmGfKiSgUjzAfrBMw0LF9jvtpTQ_33hv5Ql0KWFS6fTxQBIcj0sohItiOxJ38ucxro53o7IYCAYoxla98q9jhgDHhwstK_5uXjka-IJ1FC_7GEDYXbeekGRYVFD1lNVRufDE0myPV5kccWY9I';
+//     const token = 'BQAGi3kW8dpka9855QksoFCm1sE4bGOW24TSKbpP_PjFZag6LRqs6lnkJkFXbHdQ3ylLX_6s1T_8lGMqeSJwFR_YkYNTdk3kN8pKbPFGHJw09LyONV9BMCCtxFeiuAqr2yzMZMfMC9JcNznx2qqunWMyD9vbz8koMmtEeDs_3jlV2Oi4VvhSWLwFc0bxZsbX7k8';
 //     const player = new Spotify.Player({
 //         name: 'Web Playback SDK Quick Start Player',
 //         getOAuthToken: cb => { cb(token); },
@@ -147,9 +149,34 @@ function hide() {
 //         console.error(message);
 //     });
 
-//     document.getElementById('togglePlay').onclick = function() {
-//     player.togglePlay();
-//     };
+//     // document.getElementById('togglePlay').onclick = function() {
+//     // player.togglePlay();
+//     // };
 
 //     player.connect();
 // };
+
+const play = ({
+    spotify_uri,
+    playerInstance: {
+      _options: {
+        getOAuthToken
+      }
+    }
+  }) => {
+    getOAuthToken(access_token => {
+      fetch(`https://api.spotify.com/v1/me/player/play?device_id=${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ uris: [spotify_uri] }),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${access_token}`
+        },
+      });
+    });
+  };
+  
+  play({
+    playerInstance: new Spotify.Player({ name: "..." }),
+    spotify_uri: 'spotify:track:7xGfFoTpQ2E7fRF5lN10tr',
+  });

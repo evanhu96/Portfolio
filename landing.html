@@ -44,17 +44,22 @@
                         <button class="button is-hovered is-success is-rounded is-focused" type="button" onclick="show()" id="btnId">Let's Go!</button>
                     </div>
                 </form>
-            <!-- <div>
+            <div>
                 <button id="togglePlay">Toggle Play</button>
-            </div> -->
+            </div>
             </div>
         </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <!-- <script src="https://sdk.scdn.co/spotify-player.js"></script> -->
     <script src="./assets/js/landing.js"></script>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script>
+        window.onSpotifyWebPlaybackSDKReady = () => {
+          // You can now initialize Spotify.Player and use the SDK
+        };
+        </script>
 </body>
 
 </html>
