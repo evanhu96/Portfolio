@@ -56,13 +56,7 @@ submitBtn.addEventListener("click", function nasaApi(event) {
     document.body.appendChild(userText);
     // return and rickRoll if no name or date
     if (!nameInput) {
-<<<<<<< HEAD
-        document.body.setAttribute("style" , "background-image:none")
-
-        userText.innerHTML = "Hello, please enter your name and birthday next time to avoid this terrible fate.";
-=======
         userText.innerHTML = "Hello, please enter your name and select a date next time to avoid this terrible fate.";
->>>>>>> e2cb969e23d6c1f629e517f6770816b542d86dee
         rickRoll(); return;
     }
     userText.innerHTML = "Hello, " + nameInput + ", this is an image the Mars Rover took on the date you selected.." 
@@ -127,17 +121,7 @@ function hide() {
     document.querySelector("h3").style.display = "none";
 };
 
-<<<<<<< HEAD
-// window.onSpotifyWebPlaybackSDKReady = () => {
-//     const token = 'BQAGi3kW8dpka9855QksoFCm1sE4bGOW24TSKbpP_PjFZag6LRqs6lnkJkFXbHdQ3ylLX_6s1T_8lGMqeSJwFR_YkYNTdk3kN8pKbPFGHJw09LyONV9BMCCtxFeiuAqr2yzMZMfMC9JcNznx2qqunWMyD9vbz8koMmtEeDs_3jlV2Oi4VvhSWLwFc0bxZsbX7k8';
-//     const player = new Spotify.Player({
-//         name: 'Web Playback SDK Quick Start Player',
-//         getOAuthToken: cb => { cb(token); },
-//         volume: 0.5
-//     });
-=======
 // Advice API, random quote generator, begin 
->>>>>>> e2cb969e23d6c1f629e517f6770816b542d86dee
 
 const API_URL = "https://api.adviceslip.com/advice";
 function get(url) {return fetch(url).then(resp => resp.json())};
@@ -160,43 +144,9 @@ function addQuote(quote) {
     quoteP.style.fontFamily = fontType[fontsNum];
     bground.style.backgroundColor = colors[colorsNum]}
 
-<<<<<<< HEAD
-//     // document.getElementById('togglePlay').onclick = function() {
-//     // player.togglePlay();
-//     // };
-
-//     player.connect();
-// };
-
-const play = ({
-    spotify_uri,
-    playerInstance: {
-      _options: {
-        getOAuthToken
-      }
-    }
-  }) => {
-    getOAuthToken(access_token => {
-      fetch(`https://api.spotify.com/v1/me/player/play?device_id=${id}`, {
-        method: 'PUT',
-        body: JSON.stringify({ uris: [spotify_uri] }),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${access_token}`
-        },
-      });
-    });
-  };
-  
-  play({
-    playerInstance: new Spotify.Player({ name: "..." }),
-    spotify_uri: 'spotify:track:7xGfFoTpQ2E7fRF5lN10tr',
-  });
-=======
     const reloadButton = document.querySelector("button#reload")
 reloadButton.addEventListener("click", ()=> getQuotes());
 
 document.body.onload = getQuotes;
 
 // Advice API end
->>>>>>> e2cb969e23d6c1f629e517f6770816b542d86dee
