@@ -49,6 +49,12 @@ p {
   scale: 0.5;
 }
 
+.input{
+  width: 600px;
+  justify-content: center;
+  align-items: center;
+}
+
 #submitBtn {
   margin-top: 10px;
   z-index: 0;
