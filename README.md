@@ -9,13 +9,29 @@ This application is meant to be interactive application that uses the NASA API a
 
 N/A
 
-## Usage
+## User Story
 
-This website's usage is to be user accessible, with working links. Also, the website should be easy to understand when opened through Chrome DevOps tool. When the user presses the "Let's Go!" button, NASA's API is deployed to show the image of the day. When the user enters their name and a date in the given fields and presses the "Submit", the image of the day is removed, and the user is directed to a new page showing the Mars Rover's image on the selected date. If the user failed to input a name or birthdate into the input form, the user is "Rick Rolled".
+When the user enters "Space Zone"
+Then they are presented with a landing page.
+Said landing page contains a form, submit button, Interactive Advice API, and a button for viewing NASA image of the day.
+
+When the user fails to submit value in form,
+Then the user is redirected to a secondary webpage, where they are "Rick Rolled".
+
+When the user presses the "Let's Go!" button,
+Then the user is presented with the image of the day.
+
+When the user enters their information and selected date,
+Then the user is redirected to the image that the NASA Mars Rover captured on said selected date.
+
+When the user presses the "Reload" button,
+Then the Advice API sends an updated random advice.
 
 ## Links
 
 Below is the link to the deployed website:
+https://mmuugii.github.io/Space-Music/
+
 ##
 
 ## Screenshot of Website
